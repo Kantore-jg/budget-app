@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Budget-App</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class="app">
+        <div class="top_display">
+            <h2 id="title" class="title">Budget App</h2>
+            <h1 id="budget">+0.00</h1>
+            <div class="budget_display">
+                <div><h3 id="INCOME">INCOME   +0.00</h3></div>
+                <div><h3 id="EXPENSES">EXPENSE    -0.00   </h3></div>
+            </div>
+        </div>
+        <div class="bottom_display">
+          
+                <select name="add_descr" id="add_descr" class="add_descr">
+                    <option value="plus">+</option>
+                    <option value="moins">-</option>
+
+                </select>
+            <input type="text" id="add_description" class="description" placeholder="description"></input>
+            <input type="number" name="value" class="value" id="value" placeholder="value">
+            <button type="submit" name="valide" id="validation" class="validation">✅</button>
+           <div class="affichage">
+            <div class="inc">
+                        <strong>INCOME</strong>
+                        <ul id="ListeInc"></ul>
+            </div>
+            <div class="exp">
+                        <strong>EXPENSES</strong>
+                        <ul id="ListeExp"></ul>
+            </div>
+                
+            </div>
+        </div>
+        
+        <script src="app.js"></script>
+
+    </body>
+</html>
