@@ -1,8 +1,17 @@
 .top_display{
+<<<<<<< HEAD
     background-image: url("img/image.png");
     height: 300px;
 
 }
+=======
+    background-image: url("img/bg.jpg");
+    height: 250px;
+    background-size: cover;
+}
+
+
+>>>>>>> 6c9b5b8 (first commit)
 #INCOME{
     background-color: rgba(7, 204, 56, 0.5);
     padding: 10px;
@@ -23,10 +32,18 @@
     grid-template-rows: repeat(2,30px);
     grid-template-columns: repeat(2,100px);
     gap: 50px;
+<<<<<<< HEAD
    
 }
 h3,h2,h1{
     color: white;
+=======
+    margin-top: 20px;
+   
+}
+h3,h2,h1{
+    color: rgb(7, 6, 6);
+>>>>>>> 6c9b5b8 (first commit)
 }
 
 
@@ -44,7 +61,11 @@ h2,h1{
 
 .affichage{
     display: grid;
+<<<<<<< HEAD
     grid-template-columns: repeat(2,150px);
+=======
+    grid-template-columns: repeat(2,200px);
+>>>>>>> 6c9b5b8 (first commit)
     gap: 50px;
     justify-content: center;
     margin-top: 20px;
@@ -87,4 +108,21 @@ h2,h1{
 }
 .validation:hover{
     background-color: #519153;
+<<<<<<< HEAD
+=======
+}
+
+.delete-btn{
+    color: #ec0909;
+    border: 2px solid red;
+}
+.delete-btn:hover{
+    background-color: rgb(145, 65, 65);
+}
+
+
+
+.app{
+    background-color: turquoise;
+>>>>>>> 6c9b5b8 (first commit)
 }

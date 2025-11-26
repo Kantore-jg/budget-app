@@ -8,7 +8,11 @@ const exp_list = []
 const today = new Date()
 const title = document.getElementById("title");
 if (title){
+<<<<<<< HEAD
 title.textContent = `Budget App - ${today.toLocaleString('fr-FR', {month:'long'})} ${today.getFullYear()}`;
+=======
+title.textContent = `Budget App - ${today.toLocaleString('fr-FR',{month:'long'})} ${today.getFullYear()}`;
+>>>>>>> 6c9b5b8 (first commit)
 
 }
 
@@ -47,6 +51,7 @@ if (isNaN(value) || value <= 0) {
         return; 
     }
 const budget_dict = {
+<<<<<<< HEAD
         "description": descrEl.value,
         "value":value.toFixed(2)
     }
@@ -67,11 +72,46 @@ if (option_select === "plus"){
     
     expense_storage += value;
 }updateBudget();
+=======
+        "description": descr,
+        "value":value.toFixed(2)
+    }
+const li = document.createElement("li");
+let transactionText = budget_dict.description +" : ";
+
+
+
+if (option_select === "plus"){
+    inc_list.push(budget_dict);
+    income_storage += value;
+    transactionText += "+" + value.toFixed(2);
+
+    const ulInc = document.getElementById("ListeInc");
+        ulInc.appendChild(li)
+    
+}else{
+    exp_list.push(budget_dict);
+    expense_storage += value;
+    transactionText += "-" + value.toFixed(2);
+
+    const ulexp = document.getElementById("ListeExp");
+        ulexp.appendChild(li)
+    
+}
+li.innerHTML = `
+        <span class="list-content">${transactionText}</span>
+        <button class="delete-btn"><i class="far fa-times-circle"></i></button>
+    `;
+
+
+updateBudget();
+>>>>>>> 6c9b5b8 (first commit)
 if (descrEl) descrEl.value = "";
 if (valueInput) valueInput.value = "";
 
 }
 
+<<<<<<< HEAD
 function deleteTransaction(event) {
     // Vérifie si l'élément cliqué est bien un bouton de suppression
     if (event.target.classList.contains('delete-btn')) {
@@ -106,10 +146,43 @@ function deleteTransaction(event) {
         redrawLists();
         
         // Mettre à jour l'affichage des totaux
+=======
+
+function deleteTransaction(event){
+    const deleteButton = event.target.closest(".delete-btn");
+
+    if (deleteButton){
+        const listItem = deleteButton.closest("li");
+
+        const listTextElement = listItem.querySelector(".list-content");
+        if (!listTextElement) return;
+
+        const listText = listTextElement.textContent.trim();
+
+        const isIncome = listText.includes(": +");
+
+        const amountText = listText.split(": ")[1].replace("+", "").replace("-", "");
+        const amount = parseFloat(amountText);
+
+        if (isIncome){
+            income_storage -= amount;
+            const index = inc_list.findIndex(item => (item.description + ": -"+ item.value) === listText);
+            if (index !== -1) 
+                inc_list.splice(index, 1);
+    }else{
+            expense_storage -= amount;
+            const index = exp_list.findIndex(item => (item.description + ": -"+ item.value) === listText);
+            if (index !== -1)
+                exp_list.splice(index, 1);
+
+    }
+        listItem.remove();
+>>>>>>> 6c9b5b8 (first commit)
         updateBudget();
     }
 }
 
+<<<<<<< HEAD
 // Fonction pour reconstruire les listes après une suppression (pour corriger les index)
 function redrawLists() {
     const ulInc = document.getElementById("ListeInc");
@@ -155,6 +228,17 @@ document.addEventListener("DOMContentLoaded",function(){
     button_validate.addEventListener("click", option_selection);
     }
     document.body.addEventListener('click', deleteTransaction);
+=======
+
+document.addEventListener("DOMContentLoaded",function(){
+    updateBudget(); 
+    const button_validate = document.getElementById("validation");
+    if (button_validate){
+        button_validate.addEventListener("click", option_selection);
+    }
+        document.addEventListener('click', deleteTransaction); 
+    
+>>>>>>> 6c9b5b8 (first commit)
 })
 
 
@@ -164,5 +248,8 @@ document.addEventListener("DOMContentLoaded",function(){
 
 
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 6c9b5b8 (first commit)
